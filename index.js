@@ -30,11 +30,16 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+  counter1 creates a closure that invokes the function multiple times when invoked more than once.
+  counter2 stores the returned value in the variable count so it goes up every time the function is invoked
   
   2. Which of the two uses a closure? How can you tell?
+  count1 because of the function within a function using curly braces
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     counter2 would be preferable in setting where multiple inputs all raised the count, therefore many methods could invoke the function and increment the count value
+     counter 1 would be preferable in a situation where only invoking the counter1 variable and it's function should result in the count incrementing
 */
 
 // counter1 code
@@ -64,9 +69,22 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
-}
+
+function inning(){
+  let score = Math.random();
+    return Math.floor(score * 3);
+    // let score = Math.random();
+
+    //  return function Nscore(){
+      
+    //  return Math.floor(score * 3);
+    }
+// }
+// const inningScore = inning();
+
+console.log(inning());
+
+// console.log(inningScore());
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -83,10 +101,35 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
+
+function finalScore(funct, inningNumber){
   /*Code Here*/
+  let HomeTeamScore = 0;
+  let AwayTeamScore = 0;
+  let FinalScoreObj = {}
+  for(let i = 0; i < inningNumber; i++){
+    
+  
+     HomeTeamScore += funct();
+      
+     AwayTeamScore += funct();
+    
+    function whatever(){
+      
+      FinalScoreObj.Home = HomeTeamScore;
+      
+      FinalScoreObj.Away = AwayTeamScore
+      
+    }
+
+    whatever();
+    
+  } 
+   return FinalScoreObj;
+  
 }
 
+console.log(finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
