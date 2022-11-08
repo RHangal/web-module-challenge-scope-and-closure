@@ -118,7 +118,7 @@ function finalScore(funct, inningNumber){
       
       FinalScoreObj.Home = HomeTeamScore;
       
-      FinalScoreObj.Away = AwayTeamScore
+      FinalScoreObj.Away = AwayTeamScore;
       
     }
 
@@ -144,11 +144,23 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
+function getInningScore(funct) {
   /*Your Code Here */
+  let HomeTeamScore = funct();
+  let AwayTeamScore = funct();
+  let FinalScoreObj = {}
 
+  function whatever(){
+      
+    FinalScoreObj.Home = HomeTeamScore;
+    
+    FinalScoreObj.Away = AwayTeamScore;
+  } whatever();
+
+  return FinalScoreObj
 }
 
+console.log(getInningScore(inning));
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
