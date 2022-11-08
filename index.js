@@ -202,10 +202,34 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
+function scoreboard(funct, inning) {
   /* CODE HERE */
+  
+  const FinalScoreObj = [];
+  let AwayTeamSum = 0;
+  let HomeTeamSum = 0;
+
+  for(let i = 0; i < inning; i++) {
+    let HomeTeamScore = funct();
+  let AwayTeamScore = funct();
+  function whatever(){
+     
+     AwayTeamSum += AwayTeamScore
+     HomeTeamSum += HomeTeamScore
+
+    FinalScoreObj.push(`Inning ${i + 1}: Away ${AwayTeamScore} - Home ${HomeTeamScore}`)
+    } whatever();
+    }  if(inning === 9 && (AwayTeamSum !== HomeTeamSum)) {
+      
+      FinalScoreObj.splice(9, 0, `Final Score: Away ${AwayTeamSum} - Home ${HomeTeamSum}`) 
+    
+        } else if(inning === 9 && (AwayTeamSum === HomeTeamSum)) {
+           
+          FinalScoreObj.splice(9, 0, `This game will require extra innings: Away ${AwayTeamSum} - Home ${HomeTeamSum}`)
+        } return FinalScoreObj
 }
 
+console.log(scoreboard(inning, 9));
 
 
 
